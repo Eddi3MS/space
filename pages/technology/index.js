@@ -1,4 +1,4 @@
-import Data from "../../data/data.json";
+import Data from "../../data.json";
 import { useEffect, useState } from "react";
 import Header from "../../components/layout/header";
 

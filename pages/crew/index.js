@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Data from "../../data/data.json";
+import Data from "../../data.json";
 import Header from "../../components/layout/header";
 
 function Crew({ data }) {

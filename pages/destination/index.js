@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/layout/header";
-import Image from "next/image";
-import Data from "../../data/data.json";
+import Data from "../../data.json";
 
 function Destination({ data }) {
   const [planet, setPlanet] = useState(0);
