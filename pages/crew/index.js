@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Data from "../../data.json";
 import Header from "../../components/layout/header";
+import Head from "next/head";
 
 function Crew({ data }) {
   const [crewMember, setCrewMember] = useState(0);
@@ -14,6 +15,13 @@ function Crew({ data }) {
   }, []);
   return (
     <>
+      <Head>
+        <title>The crew</title>
+        <meta
+          name="description"
+          content="Meet the crew members responsable for your safe travel."
+        />
+      </Head>
       <Header />
       <main id="main" className="grid-container grid-container--crew  flow">
         <h1 className="numbered-title ">

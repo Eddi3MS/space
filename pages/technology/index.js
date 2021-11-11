@@ -1,6 +1,7 @@
 import Data from "../../data.json";
 import { useEffect, useState } from "react";
 import Header from "../../components/layout/header";
+import Head from "next/head";
 
 function Technology({ data }) {
   const [tech, setTech] = useState(0);
@@ -15,6 +16,11 @@ function Technology({ data }) {
 
   return (
     <>
+      <Head>
+        <title>Technology Applied</title>
+        <meta name="description" content="technology applied in the travel" />
+      </Head>
+
       <Header />
       <main
         id="main"

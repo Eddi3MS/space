@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Header from "../../components/layout/header";
 import Data from "../../data.json";
+import Head from "next/head";
 
 function Destination({ data }) {
   const [planet, setPlanet] = useState(0);
@@ -14,6 +15,13 @@ function Destination({ data }) {
   }, []);
   return (
     <>
+      <Head>
+        <title>Possible Destinations</title>
+        <meta
+          name="description"
+          content="Planets and satelites to travel to.."
+        />
+      </Head>
       <Header />
       <main
         id="main"

@@ -1,6 +1,7 @@
 import Header from "../components/layout/header";
 import Link from "next/link";
 import { useEffect } from "react";
+import Head from "next/head";
 
 export default function Home() {
   useEffect(() => {
@@ -13,6 +14,13 @@ export default function Home() {
 
   return (
     <>
+      <Head>
+        <title>Space Travel - An Adventure</title>
+        <meta
+          name="description"
+          content="Are you up to the trip? Moon, Mars, Europa and Titan are right on the corner - of the space -."
+        />
+      </Head>
       <Header />
       <main id="main" className="grid-container  grid-container--home">
         <div>
