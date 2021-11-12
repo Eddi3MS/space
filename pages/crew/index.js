@@ -6,6 +6,13 @@ import Head from "next/head";
 function Crew({ data }) {
   const [crewMember, setCrewMember] = useState(0);
 
+  const {
+    name,
+    role,
+    bio,
+    images: { png, webp },
+  } = data[crewMember];
+
   useEffect(() => {
     document.body.classList.add("crew");
 
@@ -57,26 +64,16 @@ function Crew({ data }) {
 
         <article className="crew-info flow">
           <header className="flow flow--space-small">
-            <h2 className="fs-600 ff-serif uppercase">
-              {data[`${crewMember}`].role}
-            </h2>
-            <p className="fs-700 ff-serif uppercase">
-              {data[`${crewMember}`].name}
-            </p>
+            <h2 className="fs-600 ff-serif uppercase">{role}</h2>
+            <p className="fs-700 ff-serif uppercase">{name}</p>
           </header>
 
-          <p>{data[`${crewMember}`].bio}</p>
+          <p>{bio}</p>
         </article>
 
         <picture>
-          <source
-            srcSet={data[`${crewMember}`].images.webp}
-            type="image/webp"
-          />
-          <img
-            src={data[`${crewMember}`].images.png}
-            alt={data[`${crewMember}`].name + " picture"}
-          />
+          <source srcSet={webp} type="image/webp" />
+          <img src={png} alt={name + " picture"} />
         </picture>
       </main>
     </>

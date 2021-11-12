@@ -6,6 +6,14 @@ import Head from "next/head";
 function Destination({ data }) {
   const [planet, setPlanet] = useState(0);
 
+  const {
+    name,
+    description,
+    distance,
+    travel,
+    images: { png, webp },
+  } = data[planet];
+
   useEffect(() => {
     document.body.classList.add("destination");
 
@@ -31,11 +39,8 @@ function Destination({ data }) {
           <span aria-hidden="true">01</span> Pick your destination
         </h1>
         <picture>
-          <source srcSet={data[`${planet}`].images.webp} type="image/webp" />
-          <img
-            src={data[`${planet}`].images.png}
-            alt={data[`${planet}`].name + " picture"}
-          />
+          <source srcSet={webp} type="image/webp" />
+          <img src={png} alt={name + " picture"} />
         </picture>
 
         <div className="tab-list underline-indicators flex">
@@ -70,20 +75,16 @@ function Destination({ data }) {
         </div>
 
         <article className="destination-info flow">
-          <h2 className="fs-800 ff-serif uppercase">
-            {data[`${planet}`].name}
-          </h2>
-          <p>{data[`${planet}`].description}</p>
+          <h2 className="fs-800 ff-serif uppercase">{name}</h2>
+          <p>{description}</p>
           <div className="destination-meta flex">
             <div>
               <h3 className="text-accent fs-200 uppercase">Avg. distance</h3>
-              <p className=" ff-serif uppercase">
-                {data[`${planet}`].distance}
-              </p>
+              <p className=" ff-serif uppercase">{distance}</p>
             </div>
             <div>
               <h3 className="text-accent fs-200 uppercase">Est. travel time</h3>
-              <p className=" ff-serif uppercase">{data[`${planet}`].travel}</p>
+              <p className=" ff-serif uppercase">{travel}</p>
             </div>
           </div>
         </article>

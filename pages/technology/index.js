@@ -6,6 +6,12 @@ import Head from "next/head";
 function Technology({ data }) {
   const [tech, setTech] = useState(0);
 
+  const {
+    name,
+    description,
+    images: { portrait, landscape },
+  } = data[tech];
+
   useEffect(() => {
     document.body.classList.add("technology");
 
@@ -31,14 +37,11 @@ function Technology({ data }) {
         </h1>
         <picture>
           <source
-            srcSet={data[`${tech}`].images.portrait}
+            srcSet={portrait}
             type="image/jpg"
             media="(min-width: 45em)"
           />
-          <img
-            src={data[`${tech}`].images.landscape}
-            alt={data[`${tech}`].name + "picture"}
-          />
+          <img src={landscape} alt={name + "picture"} />
         </picture>
 
         <div className="num-list flex">
@@ -82,8 +85,8 @@ function Technology({ data }) {
 
         <article className="technology-info flow">
           <h2 className="fs-700 ff-serif uppercase">the terminology...</h2>
-          <h3 className="fs-600 ff-serif uppercase">{data[`${tech}`].name}</h3>
-          <p>{data[`${tech}`].description}</p>
+          <h3 className="fs-600 ff-serif uppercase">{name}</h3>
+          <p>{description}</p>
         </article>
       </main>
     </>
