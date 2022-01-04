@@ -584,6 +584,19 @@ body {
 
 .grid-container p:not([class]) {
   max-width: 50ch;
+  min-height: 108px;
+}
+
+@media (max-width: 1005px) {
+  .grid-container p:not([class]) {
+    min-height: 135px;
+  }
+}
+
+@media (max-width: 852px) {
+  .grid-container p:not([class]) {
+    min-height: 162px;
+  }
 }
 
 /* destination layout */
@@ -760,6 +773,7 @@ body {
   .destination-meta {
     --gap: min(6vw, 6rem);
     justify-content: start;
+    min-height: 146px;
   }
 
   .grid-container--crew {
